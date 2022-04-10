@@ -1,15 +1,18 @@
 import Main from "./pages/Main";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import StoredRepo from "./pages/StoredRepo";
+import Search from "./pages/Search";
+import { RepositoriesProvider } from "./contextApi/RepositoriesContext";
 
 function App() {
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/storedRepo" element={<StoredRepo />} />
-      </Routes>
-    </HashRouter>
+    <RepositoriesProvider>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/search" element={<Search />} />
+        </Routes>
+      </HashRouter>
+    </RepositoriesProvider>
   );
 }
 
