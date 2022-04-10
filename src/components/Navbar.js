@@ -1,6 +1,6 @@
 import logo from "../assets/github.svg";
 import { HomeIcon } from "@heroicons/react/outline";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { RepositoriesContext } from "../contextApi/RepositoriesContext";
 import { XIcon } from "@heroicons/react/solid";
@@ -35,9 +35,9 @@ export default function Navbar() {
           <nav className="flex-1 px-2 py-4">
             <div className="space-y-1">
               {navigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className={classNames(
                     item.current
                       ? "bg-gray-900 text-white"
@@ -56,7 +56,7 @@ export default function Navbar() {
                     aria-hidden="true"
                   />
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
             <div className="mt-10">
